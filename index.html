@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIFA World Ranking Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>FIFA Points Calculator</h1>
+    
+    <div class="teams-container">
+        <div class="input-group">
+            <label for="teamA">Team A Points</label>
+            <input type="number" id="teamA" step="0.01" value="1000.00" required>
+        </div>
+        
+        <button class="btn-swap" id="btnSwap" title="Swap Teams">⇄</button>
+        
+        <div class="input-group">
+            <label for="teamB">Team B Points</label>
+            <input type="number" id="teamB" step="0.01" value="1000.00" required>
+        </div>
+    </div>
+    
+    <div class="input-group">
+        <label for="importance">Match Importance</label>
+        <select id="importance">
+            <option value="5">05 - Friendly (Outside Intl. Match Calendar)</option>
+            <option value="10" selected>10 - Friendly (Inside Intl. Match Calendar)</option>
+            <option value="15">15 - Nations League (Group Stage)</option>
+            <option value="25">25 - Nations League (Playoff/Final), Confederation's Final Qualifier, WC Qualifier</option>
+            <option value="35">35 - Confederation Cup (Before QF)</option>
+            <option value="40">40 - Confederation Cup (QF & Later)</option>
+            <option value="50">50 - World Cup (Before QF)</option>
+            <option value="60">60 - World Cup (QF & Later)</option>
+        </select>
+    </div>
+
+    <div class="checkbox-group">
+        <input type="checkbox" id="isKnockout">
+        <label for="isKnockout">Knockout Rounds</label>
+    </div>
+
+    <div class="input-group">
+        <label>Knockout rounds protect from negative points when losing. <a href="https://en.wikipedia.org/wiki/FIFA_Men%27s_World_Ranking#:~:text=Negative%20points%20in%20knockout%20stages%20of%20final%20competitions%20do%20not%20affect%20teams'%20ratings.">Click for info!</a></label>
+    </div>
+
+    <div class="input-group">
+        <label for="result">Match Result (Perspective: Team A)</label>
+        <select id="result">
+            <option value="win">Win (after Regular or Extra Time)</option>
+            <option value="win_pen">Win on Penalties</option>
+            <option value="draw">Draw</option>
+            <option value="loss_pen">Loss on Penalties</option>
+            <option value="loss">Loss (after Regular or Extra Time)</option>
+        </select>
+    </div>
+    
+    <button class="btn-calc" id="btnCalc">Calculate</button>
+    
+    <div class="results" id="resultsBlock">
+        <div class="results-flex">
+            <div class="team-result">
+                <h3>Team A</h3>
+                <div class="result-row">
+                    <span>Change:</span>
+                    <strong id="changeA">0.00</strong>
+                </div>
+                <div class="result-row total">
+                    <span>Total:</span>
+                    <span id="totalA">0.00</span>
+                </div>
+            </div>
+            
+            <div class="team-result">
+                <h3>Team B</h3>
+                <div class="result-row">
+                    <span>Change:</span>
+                    <strong id="changeB">0.00</strong>
+                </div>
+                <div class="result-row total">
+                    <span>Total:</span>
+                    <span id="totalB">0.00</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="storage-indicator" id="storageMsg"></div>
+</div>
+
+<script src="script.js" defer></script>
+</body>
+</html>

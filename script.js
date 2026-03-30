@@ -6,16 +6,16 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function loadSavedPoints() {
-    const savedA = localStorage.getItem('fifaPoint_TeamA');
-    const savedB = localStorage.getItem('fifaPoint_TeamB');
+    const savedA = localStorage.getItem('fifaPoints_TeamA');
+    const savedB = localStorage.getItem('fifaPoints_TeamB');
     
     if (savedA !== null) document.getElementById('teamA').value = savedA;
     if (savedB !== null) document.getElementById('teamB').value = savedB;
 }
 
 function saveToStorage(pA, pB) {
-    localStorage.setItem('fifaPoint_TeamA', pA);
-    localStorage.setItem('fifaPoint_TeamB', pB);
+    localStorage.setItem('fifaPoints_TeamA', pA);
+    localStorage.setItem('fifaPoints_TeamB', pB);
     
     const msgElement = document.getElementById('storageMsg');
     msgElement.textContent = "Points saved to local storage.";

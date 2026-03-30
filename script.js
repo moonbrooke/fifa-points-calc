@@ -6,16 +6,16 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function loadSavedPoints() {
-    const savedA = localStorage.getItem('fifaCalc_TeamA');
-    const savedB = localStorage.getItem('fifaCalc_TeamB');
+    const savedA = localStorage.getItem('fifaPoint_TeamA');
+    const savedB = localStorage.getItem('fifaPoint_TeamB');
     
     if (savedA !== null) document.getElementById('teamA').value = savedA;
     if (savedB !== null) document.getElementById('teamB').value = savedB;
 }
 
 function saveToStorage(pA, pB) {
-    localStorage.setItem('fifaCalc_TeamA', pA);
-    localStorage.setItem('fifaCalc_TeamB', pB);
+    localStorage.setItem('fifaPoint_TeamA', pA);
+    localStorage.setItem('fifaPoint_TeamB', pB);
     
     const msgElement = document.getElementById('storageMsg');
     msgElement.textContent = "Points saved to local storage.";
@@ -45,7 +45,7 @@ function calculate() {
     const isKnockout = document.getElementById('isKnockout').checked;
 
     if (isNaN(pA) || isNaN(pB)) {
-        alert("Please enter valid rating points for both teams.");
+        alert("Please enter valid points for both teams.");
         return;
     }
 
@@ -63,7 +63,7 @@ function calculate() {
     const drA = pA - pB;
     const WeA = 1 / (Math.pow(10, -drA / 600) + 1);
     
-    const drB = pB - pA; // Inverse for Team B
+    const drB = pB - pA;
     const WeB = 1 / (Math.pow(10, -drB / 600) + 1);
 
     let changeA = I * (Wa - WeA);

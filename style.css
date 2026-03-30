@@ -12,6 +12,10 @@ a {
     color: #0056b3;
 }
 
+a:hover {
+    color: #004494;
+}
+
 .container {
     background-color: #1e1e1e;
     padding: 20px;
